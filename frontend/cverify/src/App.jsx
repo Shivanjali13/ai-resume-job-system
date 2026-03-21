@@ -30,7 +30,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white">
       <div className="flex justify-between items-center px-10 py-6 border-b border-gray-800">
-        <h1 className="text-4xl font-bold text-blue-400">CVerify</h1>
+        <h1 className="text-4xl font-bold text-blue-400">CVerify ✅</h1>
         <span className="text-2xl text-gray-400">AI Resume Analyzer</span>
       </div>
       <div className="flex flex-col items-center justify-center text-center px-6 py-16">
