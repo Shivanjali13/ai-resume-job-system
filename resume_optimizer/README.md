@@ -1,4 +1,4 @@
-# Resume Optimizer Module-CVerify
+# Resume Optimizer Module-CVerify✅
 
 One of the key modules of this AI powere resumeparsing and job recommendation system
 Owner-Shivanjali    Role-AI/Optimizer Developer
@@ -21,15 +21,23 @@ resume-optimizer/
 
 │
 ├── main.py               # FastAPI app entry point
+
 ├── routes.py             # API route definitions
+
 ├── schemas.py            # Pydantic request/response models
+
 │
 ├── parser.py             # PDF & DOCX text extraction (pdfplumber, python-docx)
+
 ├── ats_scorer.py         # ATS compatibility scoring logic
+
 ├── prompt_builder.py     # Constructs structured prompts for the LLM
+
 ├── optimizer.py          # Calls Groq API and returns suggestions
+
 │
 ├── requirements.txt      # Python dependencies
+
 └── README.md             
 
 **Tech Stack**
@@ -42,6 +50,7 @@ DOCX Parsing          python-docx
 Validation            Pydantic (via FastAPI)
 Server                Uvicorn
 
+-----------------------------------------------------------------------------------------------------
 **How To Run The Module?**
 1. Clone the repository and switch to the module branch
 
@@ -70,7 +79,7 @@ Create a .env file in the module root:
 uvicorn main:app --reload --port 8000
 The API will be live at: http://localhost:8000
 Interactive docs: http://localhost:8000/docs
-
+-----------------------------------------------------------------------------------------------------
 
 API Endpoints
 POST /optimize
