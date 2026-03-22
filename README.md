@@ -46,16 +46,15 @@ CVerify/
 
       Module           |           Description                |    Owner
 ______________________________________________________________________________
-1  | Resume Optimizer  | Parses resume, calculates ATS        |  Shivanjali   |
-                         score vs job description, uses 
-                         Groq LLM to suggest improvements
+1  | Resume Optimizer  | Parses resume, calculates ATS  score vs job description, uses Groq LLM to suggest improvements       |  Shivanjali   |
                         
-2  | Resume Scanner    | Extracts structured data from        |  Srishti      |
-                         uploaded resume files
+                                                
+2  | Resume Scanner    | Extracts structured data from uploaded resume files       |  Srishti      |
+                         
 
-3  | Job Recommender   | Matches extracted skills to          |  Muskan       |
-                         job listings
+3  | Job Recommender   | Matches extracted skills to job listings         |  Muskan       |
+                         
 
-4  | Frontend          | React based UI unifying all          |   Nain        |
-                         modules
+4  | Frontend          | React based UI unifying all modules          |   Nain        |
+                         
 _______________________________________________________________________________
