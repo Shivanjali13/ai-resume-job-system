@@ -4,7 +4,7 @@ export default function App() {
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
-
+  const [error, setError] = useState("");
   const handleAnalyze = () => {
     if (!file) {
       alert("Please upload a resume first!");
@@ -14,19 +14,46 @@ export default function App() {
     setTimeout(() => {
       setResult({
         score: 85,
-        skills: ["React", "JavaScript", "Python", "Machine Learning", "Git"],
+        skills: ["React", "JavaScript", "Python", "ML"],
         jobs: [
-          "Frontend Developer",
-          "Software Engineer",
-          "ML Engineer",
-          "Data Analyst",
-          "Backend Developer",
-        ],
+          {
+            title: "Frontend Developer",
+            description: "Build responsive UI using React and modern tools."
+          },
+          {
+            title: "Software Engineer",
+            description: "Develop scalable applications and backend systems."
+          },
+          {
+            title: "ML Engineer",
+            description: "Work on machine learning models and pipelines."
+          },
+          {
+            title: "Data Analyst",
+            description: "Analyze data and generate insights for decision making."
+          },
+          {
+            title: "Backend Developer",
+            description: "Build APIs and manage server-side logic."
+          }
+        ]
       });
       setLoading(false);
     }, 2000);
   };
+  const handleDownload = (jobTitle) => {
+    const content = `Optimized Resume for ${jobTitle}`;
 
+    const blob = new Blob([content], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${jobTitle}_resume.doc`;
+    a.click();
+
+    URL.revokeObjectURL(url);
+  };
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white">
       <div className="flex justify-between items-center px-10 py-6 border-b border-gray-800">
@@ -35,7 +62,7 @@ export default function App() {
       </div>
       <div className="flex flex-col items-center justify-center text-center px-6 py-16">
         {!result && (
-          <> 
+          <>
             <h2 className="text-5xl font-extrabold mb-4">
               Analyze Your Resume Instantly
             </h2>
@@ -43,13 +70,31 @@ export default function App() {
               Upload your resume and get AI-powered insights, skill analysis,
               and top job recommendations tailored just for you.
             </p>
-            <div className="bg-gray-800 border border-gray-700 p-10 rounded-2xl shadow-2xl w-full max-w-2xl">
+            <div className="relative bg-gray-800 border border-gray-700 p-10 rounded-2xl shadow-2xl w-full max-w-2xl">
               <input
                 type="file"
-                onChange={(e) => setFile(e.target.files[0])}
+                onChange={(e) => {
+                  const selectedFile = e.target.files[0];
+                  if (selectedFile) {
+                    const validTypes = [
+                      "application/pdf",
+                      "application/msword",
+                      "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                    ];
+                    if (!validTypes.includes(selectedFile.type)) {
+                      setError("Only PDF or Word files are allowed!");
+                      setFile(null);
+                      return;
+                    }
+                    setError("");
+                    setFile(selectedFile);
+                  }
+                }}
                 className="mb-6 text-gray-300"
               />
-
+              {error && (
+                <p className="absolute text-red-400 text-sm mt-2">{error}</p>
+              )}
               <button
                 onClick={handleAnalyze}
                 className="bg-blue-500 hover:bg-blue-600 px-8 py-3 rounded-xl text-lg transition-all hover:scale-105"
@@ -61,7 +106,7 @@ export default function App() {
         )}
         {loading && (
           <div className="mt-10 text-blue-400 text-xl animate-pulse">
-             Analyzing your resume...
+            Analyzing your resume...
           </div>
         )}
 
@@ -91,26 +136,40 @@ export default function App() {
 
             {/* Jobs */}
             <div className="mb-6">
-              <h3 className="text-xl font-semibold mb-3">
+              <h3 className="text-xl font-semibold mb-4">
                 Recommended Jobs
               </h3>
-              <ul className="grid grid-cols-2 gap-4">
+
+              <div className="grid md:grid-cols-2 gap-6">
                 {result.jobs.map((job, index) => (
-                  <li
+                  <div
                     key={index}
-                    className="bg-gray-700 p-3 rounded-lg"
+                    className="bg-gray-700 p-5 rounded-xl shadow-lg hover:scale-105 transition-all"
                   >
-                    {job}
-                  </li>
+                    <h4 className="text-lg font-bold text-blue-400">
+                      {job.title}
+                    </h4>
+
+                    <p className="text-gray-300 mt-2 text-sm">
+                      {job.description}
+                    </p>
+
+                    <button
+                      onClick={() => handleDownload(job.title)}
+                      className="mt-4 w-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:scale-105 transition-all py-2 rounded-lg text-sm"
+                    >
+                      Download Optimized Resume 📄
+                    </button>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
             <button
               onClick={() => {
                 setResult(null);
                 setFile(null);
               }}
-              className="mt-6 bg-gray-600 hover:bg-gray-700 px-6 py-2 rounded-xl"
+              className="mt-6 bg-gradient-to-r from-blue-500 to-indigo-600 hover:scale-105 transition-all px-6 py-2 rounded-xl"
             >
               Upload Another Resume
             </button>
