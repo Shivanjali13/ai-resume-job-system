@@ -1,4 +1,4 @@
-#Resume Optimizer Module-CVerify
+# Resume Optimizer Module-CVerify
 
 One of the key modules of this AI powere resumeparsing and job recommendation system
 Owner-Shivanjali    Role-AI/Optimizer Developer
@@ -21,23 +21,15 @@ resume-optimizer/
 
 │
 ├── main.py               # FastAPI app entry point
-
 ├── routes.py             # API route definitions
-
 ├── schemas.py            # Pydantic request/response models
-
 │
 ├── parser.py             # PDF & DOCX text extraction (pdfplumber, python-docx)
-
 ├── ats_scorer.py         # ATS compatibility scoring logic
-
 ├── prompt_builder.py     # Constructs structured prompts for the LLM
-
 ├── optimizer.py          # Calls Groq API and returns suggestions
-
 │
 ├── requirements.txt      # Python dependencies
-
 └── README.md             
 
 **Tech Stack**
@@ -59,7 +51,7 @@ Server                Uvicorn
 
 2. Create and activate a virtual environment
 
-    # Windows
+    Windows
     python -m venv venv
     venv\Scripts\activate
 
@@ -83,10 +75,7 @@ Interactive docs: http://localhost:8000/docs
 API Endpoints
 POST /optimize
 Upload a resume file and provide a job description. Returns the ATS score, improvement suggestions, and projected score after applying suggestions.
-Request — multipart/form-data
-Field              Type              Required                 Description
-resume_file        File                ✅             .pdf or .docx resume file 
-job_description    string              ✅             Full text of the target job post
+
 
 **Requirements**
 fastapi
