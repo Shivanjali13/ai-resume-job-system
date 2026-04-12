@@ -15,7 +15,7 @@ This module exposes a FastAPI REST interface that integrates with the Resume Sca
 -> Before/After Score Comparison — Returns both the original and projected improved ATS scores
 -> RESTful API — Clean FastAPI endpoints ready for frontend and cross-module consumption
 
-**Project module struncture**
+**Project module structure**
 
 resume-optimizer/
 

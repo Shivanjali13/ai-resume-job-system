@@ -1,6 +1,4 @@
-openai
-fastapi
-uvicorn
+groq
 pydantic
 pdfplumber
 python-docx
