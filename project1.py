@@ -67,7 +67,7 @@ jobs['exp_lvl'] = jobs['exp_lvl'].apply(lambda x: [x])
 jobs['location'] = jobs['location'].apply(lambda x: [x])
 jobs['tags']=jobs['required_skills']+(jobs['exp_lvl'])
 jobs.head()
-jobs_new=jobs[['company','job_title','tags','location']].copy()
+jobs_new = jobs[['company','job_title','tags','location','required_skills']].copy()
 jobs_new['tags']=jobs_new['tags'].apply(lambda x:" ".join(x))
 jobs_new.head()
 # -company ,job title, company, location create vectors of job title and we'll go for closest vectors                    
@@ -115,6 +115,7 @@ def recommend_from_skills(data):
             "job_title": row.job_title,
             "company": row.company,
             "location": row.location,
+            "description": " ".join(row.required_skills),
             "score": float(i[1])   # convert numpy float → normal float
         })
     
