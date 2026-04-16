@@ -16,14 +16,14 @@ def optimize_resume(resume_file, job_description: str) -> dict:
     
     Returns:
     dict with:
-       - original_ats_score
-       - optimized_ats_score
-       - score_improvement
-       - matched_keywords
-       - still_missing
-       - suggestions
-       -optimized resume(plain text)
-       - optimized resume_path (path to.docx file)
+    - original_ats_score
+    - optimized_ats_score
+    - score_improvement
+    - matched_keywords
+    - still_missing
+    - suggestions
+    -optimized resume(plain text)
+    - optimized resume_path (path to.docx file)
     """
     
     #File input
@@ -41,9 +41,12 @@ def optimize_resume(resume_file, job_description: str) -> dict:
     
     result = run_optimizer_agent(resume_text, job_description)
     
-    output_path = os.path.join(temp_dir, "optimized_resume.docx")
-    build_resume_docx(result["optimized_resume"], output_path)
-    result["optimized_resume_path"] = output_path
+    # output_path = os.path.join(temp_dir, "optimized_resume.docx")
+    # build_resume_docx(result["optimized_resume"], output_path)
+    # result["optimized_resume_path"] = output_path
+    docx_path = os.path.join(temp_dir, "optimized_resume.docx")
+    build_resume_docx(result["optimized_resume"], docx_path)
+    result["optimized_resume_path"]=docx_path
     
     return result
        
