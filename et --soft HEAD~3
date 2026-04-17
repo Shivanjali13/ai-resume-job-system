@@ -1,0 +1,23 @@
+[33mec273b6[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mnain/frontend[m[33m)[m secured api
+[33md8ff3d9[m add you own api key
+[33ma117b2f[m completed
+[33m346a8f3[m Merge branch 'muskan/job_recommender' of https://github.com/Shivanjali13/ai-resume-job-system into nain/frontend
+[33m9ca8f10[m Merge branch 'srishti/resume-scanner' of https://github.com/Shivanjali13/ai-resume-job-system into nain/frontend
+[33m464bec1[m Merge branch 'shivanjali/resume_optimizer' of https://github.com/Shivanjali13/ai-resume-job-system into nain/frontend
+[33m9cee956[m[33m ([m[1;32mmuskan/job_recommender[m[33m)[m converted to py format
+[33mebbddd6[m[33m ([m[1;31morigin/nain/frontend[m[33m)[m Download button added
+[33md4abea2[m[33m ([m[1;32msrishti/resume-scanner[m[33m)[m added requirements file
+[33mbbeb399[m Added resume parser and trained model
+[33m5577efa[m Updates in README(resume_optimizer module)
+[33mb828156[m Some modifications in README
+[33m93e7817[m fix: replace project README with correct module README
+[33m499081e[m docs: added README for resume optimizer module
+[33me9f3042[m updated name
+[33m75c8908[m updated recommendation system to accept JSON input/output
+[33m0d0f298[m updated Readme
+[33mbd78c36[m CVerify frontend
+[33m7788f70[m Add resume_optimizer module with FastAPI endpoints
+[33m7d0eb1f[m Added .gitignore and .env.example files for safe collaboration
+[33mb51def5[m added resume scanner
+[33m97754a6[m added job recommender model
+[33me2f238c[m[33m ([m[1;31morigin/muskan/job-recommender[m[33m, [m[1;32mmain[m[33m)[m Initial commit
