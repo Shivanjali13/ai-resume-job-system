@@ -1,61 +1,74 @@
-# CVerify✅
-An AI powered resume optimizer and job recommendation system
+🚀 AI Resume Analyzer & Job Recommender
 
-An intelligent system that parses resumes, scores them against job descriptions using ATS logic, suggests LLM-powered improvements, and recommends matching job listings.
+An intelligent full-stack application that analyzes resumes, extracts skills, recommends relevant jobs, and optimizes resumes using AI to improve ATS (Applicant Tracking System) scores.
 
-This group project was built by a four-person team. It helps the users by:
--> **Parsing** their resume(PDF or DOCX)
--> **Scoring** it against a target job description(ATS Score)
--> **Suggesting improvements** using an LLM(Large Language Model)
--> **Recommending relevant jobs** based on extracted skills and experience
-
-Each team member owns one module. All modules communicate via REST APIs and are integrated into a unified frontend.
-
-Project structure:
-
-CVerify/
+✨ Features
+📄 Upload resume (PDF/DOCX)
+🧠 Extract skills using NLP
+💼 Get job recommendations based on skills
+🤖 AI-powered resume optimization
+📊 ATS score improvement analysis
+⬇️ Download optimized resume in Word format
+⚡ Fast and interactive UI
+🏗️ Tech Stack
+Frontend
+React.js
+Tailwind CSS
+Backend
+Flask
+Python
+AI / ML
+SpaCy (NLP for skill extraction)
+LLM via Groq (LLaMA 3.1)
+Custom ATS scoring system
+📁 Project Structure
+ai-resume-job-system/
 │
-├── (module_1)resume_optimizer/       # ATS scoring + LLM suggestions (Shivanjali)
-|   ├──api/
-|      ├── routes.py
-|      ├── __init__.py 
-|   ├──core
-|      ├── __init__.py 
-│      ├── parser.py
-│      ├── ats_scorer.py
-│      ├── prompt_builder.py
-│      ├── optimizer.py
-│   ├──models
-│      ├── schemas.py
-|   ├──.env.example
-|   ├──requirements.txt
-│   └── main.py
+├── backend/
+│   ├── integration.py
+│   ├── extractor.py
+│   ├── project1.py
+│   └── resume_optimizer/
 │
-├── module_2_resume_scanner/     # Resume parsing & extraction
+├── frontend/
+│   └── React App
 │
-├── module_3_job_recommender/    # Job matching & recommendations
-│
-├── module_4_frontend/           # React + Tailwind UI
-│
-├──.env.example
-├──.gitignore
+├── data/
+├── skill_model/
 └── README.md
+⚙️ Setup Instructions
+🔹 1. Clone the Repository
+git clone https://github.com/your-username/ai-resume-job-system.git
+cd ai-resume-job-system
+🔹 2. Backend Setup
+cd backend
+python -m venv venv
+venv\Scripts\activate   # Windows
 
+pip install -r requirements.txt
+🔹 3. Environment Variables
 
-**MODULES OVERVIEW**
+Create a .env file inside backend/:
 
-      Module                      Description                    Owner
-______________________________________________________________________________
-1   Resume Optimizer  |   Parses resume, calculates ATS        Shivanjali
-                         score vs job description, uses 
-                         Groq LLM to suggest improvements
-                        
-2   Resume Scanner    |   Extracts structured data from          Srishti
-                         uploaded resume files
+GROQ_API_KEY=your_api_key_here
+🔹 4. Run Backend
+python integration.py
 
-3   Job Recommender      Matches extracted skills to            Muskan
-                         job listings
+Server runs on:
 
-4   Frontend             React based UI unifying all             Nain
-                         modules
-
+http://127.0.0.1:5000
+🧠 How It Works
+1. Upload Resume
+2. Extract Skills (NLP)
+3. Recommend Jobs
+4. Optimize Resume using AI
+5. Improve ATS Score
+6. Download Optimized Resum
+🔐 Security Note
+API keys are stored in .env and not pushed to GitHub
+Sensitive data is protected using environment variables
+🚧 Future Improvements
+🔍 Better job matching using embeddings
+📊 Advanced ATS scoring model
+🧾 Speed and Scalability
+☁️ Deployment (AWS / Vercel)
